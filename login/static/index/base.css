@@ -1,0 +1,301 @@
+section{
+  background-color: black;
+}
+.navbar {
+    min-height: 50px;
+    margin-bottom: 0px;
+  }
+  .nav > li > a {
+    padding: 25px 50px;
+    font-size: 20px;
+  }
+  .nav > li > a::before,
+  .nav > li > a::after{
+    position: absolute;
+    width: 45px;
+    height: 2px;
+    background: #fff;
+    content: '';
+    opacity: 0.2;
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+  .nav > li > a::before{
+    top: 5px !important;
+  }
+
+  .nav > li >  a::before {
+    top: 10px;
+      left: 0;
+      transform: rotate(98deg);
+      transform-origin: 0 0;
+  }
+  
+  .nav > li > a::after {
+    right: 0;
+    bottom: 0;
+    transform: rotate(98deg);
+    transform-origin: 100% 0;
+  }
+  .nav > li > a:active{
+    color: orange;
+  }
+  .nav > li > a:hover::before,
+  .nav > li > a:hover::after,
+  .nav > li > a:focus::before,
+  .nav > li > a:focus::after,
+  .nav > li > a.active::before,
+  .nav > li > a.active::after {
+	opacity: 1;
+}
+
+.nav > li > a:hover::before,
+.nav > li > a:focus::before,
+.nav > li > a:active::before {
+	left: 50%;
+	-webkit-transform: rotate(0deg) translateX(-50%);
+	-moz-transform: rotate(0deg) translateX(-50%);
+	transform: rotate(0deg) translateX(-50%);
+}
+
+.nav > li > a:hover::after,
+.nav > li > a:focus::after,
+.nav > li > a:active::after{
+	right: 50%;
+	-webkit-transform: rotate(0deg) translateX(50%);
+	-moz-transform: rotate(0deg) translateX(50%);
+	transform: rotate(0deg) translateX(50%);
+}
+  .navbar-brand {
+    padding: 25px 200px;
+    font-size: 30px;
+    font-style: italic;
+    
+  }
+  .mainPage{
+    padding-top: 70px;
+  }
+  .item{
+    margin-top: 10%;
+    padding-bottom: 0px;
+  }
+  .carousel{
+    height: 100vh;
+    background-color: gainsboro
+  }
+  .carousel-inner{
+    height: 90%;
+  }
+ .carousel-caption h1{
+   font-size: 70px;
+ }
+ .carousel-caption p{
+  font-size: 20px;
+}
+ .carousel-caption p1{
+   font-size:20px;
+ }
+.carousel-caption .btn-default{
+  background-color: transparent;
+  color: white;
+}
+.carousel-caption .btn-default:hover{
+  background-color: white;
+  color:black;
+}
+.aboutPage{
+  height: 800px;
+}
+.featuresPage{
+  height: 800px;
+}
+.aboutPage{
+  background-image: url("../../static/images/fullimage.jpg");
+      /* background-size: cover; */
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #ffffff;
+      text-align: center;
+}
+.masthead-text{
+    padding-top: 250px;
+}
+.masthead-text h1{
+  font-size: 60px;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+.masthead-text p{
+  font-size: 14px;
+  color: #fff;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.featuresPage{
+  background-color:ghostwhite;
+  padding-top: 60px;
+  padding-bottom: 60px;
+} 
+.featuresPage .row{
+
+}
+.featuresPage-left{
+
+}
+.featuresPage-left img{
+  margin-left: 30%;
+    margin-top: 5%;
+    height: -webkit-fill-available;
+}
+.featuresPage-right{
+  background-color: transparent;  
+  margin-top: 50px;
+
+}
+.features-box{
+  text-align: left;
+  margin-top: 50px;
+  padding-right: 100px;
+}
+.features-box-50{
+  text-align: left;
+  margin-top: 50px;
+  padding-right: 100px;
+
+  margin-left: 50px;
+}
+header h5{
+  margin: 0 0 20px 50px;
+  color: #292929;
+  font-weight: 600;
+}
+.features-box  p{
+  line-height: 22px;
+  margin: 0 0 0 50px;
+  
+}
+.features-box-50 p{
+  line-height: 22px;
+  margin: 0 0 0 50px;
+  
+}
+
+
+
+
+
+
+
+.teamsPage{
+  background-color: black;
+}
+.teams-title{
+  height: 200px;
+  color: lightcyan; 
+}
+.teams-title h1{
+  margin-top: 0px;
+  padding-top: 80px;
+  color: white;
+} 
+.tm-bg-white-transparent{
+  background-color: rgba(255,255,255,0.2);
+  max-width: 300px;
+  min-height: 400px;
+  max-height: 500px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border:solid 1px;
+  border-radius: 20px;
+}
+.tm-bg-white-transparent:hover{
+  border-color: orange;
+  width: 350px;
+  translate: 1000;
+
+}
+#tmTeams{
+  width: 80%;
+  margin: auto;
+}
+#tmTeams h3{
+  margin-top: 40px;
+  text-align: center;
+  font-weight: 500px;
+  font-size: 25px;
+  line-height: 1.2px;
+  color: white;
+}
+.teams-icon-container{
+  margin: auto;
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border:solid 1px orange;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+
+#tmTeams p{
+  margin: 10%;
+  color: aliceblue;
+  font-size: 15px;
+}
+.divider{
+  background: url("../../static/images/divider-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+    text-align: center;
+}
+.overlay{
+
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.container{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.divider .divider-des {
+  padding: 100px 15px;
+}
+
+.ContactPage{
+
+  height: 800px;
+  background-color: white;
+}
+.innerContact{
+  height: 100%;  padding: 7%;
+}
+.innerContact h1{
+  text-align: center;
+  color: black;
+  font-weight: 500; 
+  margin-bottom: 100px;
+}
+.innerContact h1::after {
+  content: '';
+  display: block;
+  width: 10.25rem;
+  height: 1px;
+  margin: 1.25rem auto;
+  background: #4fbfa8;
+}
+.footer{
+  background-color: darkgray;
+  height: 100px;
+}
