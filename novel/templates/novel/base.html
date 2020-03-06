@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../../static/novel/turn.min.js"></script>
+
+<style type="text/css">
+body{
+    background:#ccc;
+    
+}
+#magazine{
+	width:576px*2;
+	height:752px;
+
+}
+#magazine .turn-page{
+    background-color: #ccc;
+    color:black;
+    background-size:100% 100%;
+}
+</style>
+</head>
+<body>
+
+<div id="magazine">
+	<div style="background-color: wheat;"><h1>{{chart.novel.novel_name}}</h1></div>
+	<!-- <div style="background-color: wheat;">asdddddddddsddddddddddddd</div>
+	<div style="background-color: wheat;">ddddddddddddddddddddddddddddd</div>
+	<div style="background-color: wheat;">dsadsadsadasdasdasdasdasdasdasdasdasd</div>
+	<div style="background-color: wheat;">sadsadsadasdasdasdasdasdasdasdasdas</div>
+	<div style="background-color: wheat;">sadsadsadasdasdasdasdasdasdasdasdas</div> -->
+</div>
+
+
+<script type="text/javascript">
+
+	$(window).ready(function() {
+		$('#magazine').turn({
+							display: 'single',
+							acceleration: true,
+							gradients: true,
+							elevation:1000,
+							duration:3000,
+// 							display:'double',
+							page:2,
+							autoCenter:true,
+							when: {
+								turned: function(e, page) {
+									/*console.log('Current view: ', $(this).turn('view'));*/
+								}
+							}
+						});
+	});
+	
+	$("#magazine").turn("peel", "br");
+	$(window).bind('keydown', function(e){
+		
+		if (e.keyCode==37)
+			$('#magazine').turn('previous');
+		else if (e.keyCode==39)
+			$('#magazine').turn('next');
+			
+	});
+	var way = 1;
+
+	setInterval(function() {
+	//当前页面为第一页，只能向后翻页
+	if (way==1) {
+		$("#magazine").turn("next");
+		//当翻到最后一页时，只能向前翻
+		if ($("#magazine").turn("page")== $("#magazine").turn("pages")) {
+		way = 2;
+		$("#magazine").turn("options", {turnCorners: "tl,tr"});
+		}
+	} else {
+		$("#magazine").turn("previous");
+		
+		if ($("#magazine").turn("page")==1) {
+		way = 1;
+		$("#magazine").turn("options", {turnCorners: "bl,br"});
+		}
+	}
+	}, 1000);
+
+</script>
+
+</body>
+</html>
