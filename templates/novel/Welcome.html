@@ -90,6 +90,7 @@
 	</head>
 
 	<body id="page-163-com"  class="page-bookCategory ">
+
 		<noscript><a href="#">请使用支持脚本的浏览器！</a></noscript>
     	<div style="display: none;"><input type="password" /></div>
 		<div class="g-doc">
@@ -104,8 +105,9 @@
 		</div>
 		<div class="m-headertop">
 			<div class="inner">
-				<div class="m-sch">
+				<!--<div class="m-sch">-->
 				</div>
+
 				<div class="m-clouds">
 					<a class="m-cloudsj" href="/shelf.do?operation=query_current" target="_blank">我的书架</a>
 				</div>
@@ -130,8 +132,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/login/" class="active"> 首页</a></li>
-          <li><a href="/novel/">书城</a></li>
+          <li><a href="/login" class="active"> 首页</a></li>
+          <li><a href="/novel">书城</a></li>
           <li><a href=""> 我的</a></li>
           <li><a href="#"> 书架</a></li>
           <li class="dropdown">
@@ -154,23 +156,23 @@
   </div>
   <div align="center">
   <table cellspacing="150" >
-  <tr>
-    <td><a href=""><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4024794832,644261593&fm=26&gp=0.jpg" width="80" height="80"></a></td>
-    <td><a href=""><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4024794832,644261593&fm=26&gp=0.jpg" width="80" height="80"></a></td>
-    <td><a href=""><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4024794832,644261593&fm=26&gp=0.jpg" width="80" height="80"></a></td>
-  <td><a href=""><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4024794832,644261593&fm=26&gp=0.jpg" width="80" height="80"></a></td>
-    <td><a href=""><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4024794832,644261593&fm=26&gp=0.jpg" width="80" height="80"></a></td>
-    <td><a href=""><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4024794832,644261593&fm=26&gp=0.jpg" width="80" height="80"></a></td>
-	   <td><a href=""><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4024794832,644261593&fm=26&gp=0.jpg" width="80" height="80"></a></td>
-  <td><a href=""><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4024794832,644261593&fm=26&gp=0.jpg" width="80" height="80"></a></td></tr>
-    <tr><td><a href=""><h4>经典名著</h4></a></td>
-      <td><a href=""><h4>精美散文</h4></a></td>
-      <td><a href=""><h4>唐诗宋词</h4></a></td>
-      <td><a href=""><h4>课程教材</h4></a></td>
-      <td><a href=""><h4>参考书籍</h4></a></td>
-      <td><a href=""><h4>实验手册</h4></a></td>
-      <td><a href=""><h4>时事新闻</h4></a></td>
-      <td><a href=""><h4>其他</h4></a></td></tr>
+	  <!--<ul>-->
+		 <!--{% for type in types %}-->
+		  <!--<li role="presentation"><a href="#">{{type.name}}</a></li>-->
+		  <!--{% endfor %}-->
+	  <!--</ul>-->
+
+	  		<form  class="search bar6" method="get" action="">
+				<input name="kw" type="text" placeholder="关键字">
+				<input type="submit" value="搜索">
+			</form>
+
+	  {% for type in types %}
+
+	  <td><a href="?tid={{type.id}}"><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4024794832,644261593&fm=26&gp=0.jpg" width="80" height="80"></a>
+		  <a href="?tid={{type.id}}"><h4>{{type.name}}</h4></a></td>
+
+		  {% endfor %}
   </table>
   </div>
 </div>
@@ -724,26 +726,162 @@
 
 
 
+	<nav aria-label="Page navigation">
+		<ur class="pagination">
+			<li>
+				#实现分页功能
+				{% if recommend_list.has_previous %}
+					<a href="{{recommend_list.previous_page_number}}" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				{% else %}
+					<a class="disabled" href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				{% endif %}
+			</li>
+			<!--{%for page in paginator.page_range%}-->
+			<!--<li><a href="{{page}}">{{page}}</a></li>-->
+			<!--{%endfor%}-->
+                    {% if recommend_list.number >= 1 and recommend_list.number <= 10 %}
+                        {% for i in range1 %}
+                            {% if i >= 1 and i <= 10 %}
+                                <li {% if recommend_list.number == i %} class="active" {% endif %}>
+                                    <a href="{{ i }}">{{ i }}</a>
+                                </li>
+                            {% elif i == 12 %}
+                                <li {% if recommend_list.number == recommend_list.paginator.num_pages %} class="active" {% endif %}>
+                                    <a href="{{ recommend_list.paginator.num_pages }}">{{ recommend_list.paginator.num_pages }}</a>
+                                </li>
+                            {% elif i == 11 %}
+                                <li>
+                                    <a>...</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% elif recommend_list.number == recommend_list.paginator.num_pages %}
+                        {% for i in range1 %}
+                            {% if i >= 1 and i <= 10 %}
+                                <li {% if recommend_list.number == i %} class="active" {% endif %}>
+                                    <a href="{{ i }}">{{ i }}</a>
+                                </li>
+                            {% elif i == 12 %}
+                                <li {% if recommend_list.number == recommend_list.paginator.num_pages %} class="active" {% endif %}>
+                                    <a href="{{ recommend_list.paginator.num_pages }}">{{ recommend_list.paginator.num_pages }}</a>
+                                </li>
+                            {% elif i == 11 %}
+                                <li>
+                                    <a>...</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% elif recommend_list.number == 11 %}
+                        {% for i in range3 %}
+                            {% if i >= 1 and i <= 10 %}
+                                <li {% if recommend_list.number == i %} class="active" {% endif %}>
+                                    <a href="{{ i }}">{{ i }}</a>
+                                </li>
+                            {% elif i == 13 %}
+                                <li {% if recommend_list.number == recommend_list.paginator.num_pages %} class="active" {% endif %}>
+                                    <a href="{{ recommend_list.paginator.num_pages }}">{{ recommend_list.paginator.num_pages }}</a>
+                                </li>
+                            {% elif i == 11 %}
+                                <li {% if recommend_list.number == i %} class="active" {% endif %}>
+                                    <a href="{{ i }}">{{ i }}</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a>...</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% elif recommend_list.number ==  recommend_list.paginator.num_pages  %}
+                        {% for i in range3 %}
+                            {% if i >= 1 and i <= 10 %}
+                                <li {% if recommend_list.number == i %} class="active" {% endif %}>
+                                    <a href="{{ i }}">{{ i }}</a>
+                                </li>
+                            {% elif i == 13 %}
+                                <li {% if recommend_list.number == recommend_list.paginator.num_pages %} class="active" {% endif %}>
+                                    <a href="{{ recommend_list.paginator.num_pages }}">{{ recommend_list.paginator.num_pages }}</a>
+                                </li>
+                            {% elif i == 12 %}
+                                <li {% if recommend_list.number == lastButOne %} class="active" {% endif %}>
+                                    <a href="{{ lastButOne }}">{{ lastButOne }}</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a>...</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% elif recommend_list.number > 11 and recommend_list.number <  recommend_list.paginator.num_pages %}
+                        {% for i in range2 %}
+                            {% if i >= 1 and i <= 10 %}
+                                <li {% if recommend_list.number == i %} class="active" {% endif %}>
+                                    <a href="{{ i }}">{{ i }}</a>
+                                </li>
+                            {% elif i == 11 %}
+                                <li>
+                                    <a>...</a>
+                                </li>
+                            {% elif i == 12 %}
+                                <li class="active">
+                                    <a href="{{ recommend_list.number }}">{{ recommend_list.number }}</a>
+                                </li>
+                            {% elif i == 13 %}
+                                <li>
+                                    <a>...</a>
+                                </li>
+                            {% elif i == 14 %}
+                                <li {% if recommend_list.number == recommend_list.paginator.num_pages %} class="active" {% endif %}>
+                                    <a href="{{ recommend_list.paginator.num_pages }}">{{ recommend_list.paginator.num_pages }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+            </li>
+            <li>
+                <a>共{{ recommend_list.paginator.num_pages }}页</a>
+            </li>
+            <li>
+                跳转至<input type="text" id="pageNum" size="1">页
+                <button type="button" class="btn btn-default btn-sm" onclick="getPage();">
+                    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                </button>
+			<li>
+				{% if recommend_list.has_next %}
+				<a href="{{recommend_list.next_page_number}}" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+				{% else %}
+					<a  class="disabled" href="#" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+				{% endif %}
+			</li>
 
-	<div class="m-page m-page-g">
-		<span class="nums">
-				<a href="/book/category/category/3000/0_0_1/p1/s20" class="j-crt">1</a>
-				<a href="/book/category/category/3000/0_0_1/p2/s20" >2</a>
-				<a href="/book/category/category/3000/0_0_1/p3/s20" >3</a>
-				<a href="/book/category/category/3000/0_0_1/p4/s20" >4</a>
-				<a href="/book/category/category/3000/0_0_1/p5/s20" >5</a>
-		</span>
-					<span class="dian">...</span>
-				<span class="nums">
-					<a href="/book/category/category/3000/0_0_1/p59/s20">59</a>
-				</span>
-			<a href="/book/category/category/3000/0_0_1/p2/s20" class="go go-n">下一页</a>
-	</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+		</ur>
+	</nav>
+	<!--<div class="m-page m-page-g">-->
+		<!--<span class="nums">-->
+				<!--<a href="/book/category/category/3000/0_0_1/p1/s20" class="j-crt">1</a>-->
+				<!--<a href="/book/category/category/3000/0_0_1/p2/s20" >2</a>-->
+				<!--<a href="/book/category/category/3000/0_0_1/p3/s20" >3</a>-->
+				<!--<a href="/book/category/category/3000/0_0_1/p4/s20" >4</a>-->
+				<!--<a href="/book/category/category/3000/0_0_1/p5/s20" >5</a>-->
+		<!--</span>-->
+					<!--<span class="dian">...</span>-->
+				<!--<span class="nums">-->
+					<!--<a href="/book/category/category/3000/0_0_1/p59/s20">59</a>-->
+				<!--</span>-->
+			<!--<a href="/book/category/category/3000/0_0_1/p2/s20" class="go go-n">下一页</a>-->
+	<!--</div>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
 	<script src="//yuedust.yuedu.126.net/js/tabs.js?89968b50"></script>
 	<script src="//yuedust.yuedu.126.net/js/tplforindex.js?a31a0020"></script>
 	<script src="//yuedust.yuedu.126.net/js/nav-list.js?aa8cc8e2"></script>
