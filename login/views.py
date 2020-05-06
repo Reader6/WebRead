@@ -6,8 +6,8 @@ from . import forms
 
 
 def index(request):
-    # if not request.session.get('is_login', None):
-    #     return redirect('/login/')
+    if not request.session.get('is_login', None):
+        return redirect('/login/')
     return render(request, 'login/index.html')
 
 
@@ -79,7 +79,7 @@ def register(request):
                 return redirect('/login/')
         else:
             return render(request, 'login/register.html', locals())
-    register_form = forms.RegisterForm()
+    # register_form = forms.RegisterForm()
     return render(request, 'login/register.html', locals())
 
 
@@ -89,3 +89,13 @@ def logout(request):
         return redirect("/login/")
     request.session.flush()
     return redirect("/login/")
+
+def user(request):
+    id=request.session['user_id']
+
+    user_name=request.session['user_name']
+
+    # login_form = forms.UserForm(request.POST)
+    # username = login_form.cleaned_data.get('username')
+    # user = models.User.objects.get(name=username);
+    return render(request, 'login/user.html', locals())
