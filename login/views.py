@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
+
 from . import models
 from . import forms
+from .models import User
 # Create your views here.
 
 
@@ -55,6 +58,7 @@ def register(request):
             password2 = register_form.cleaned_data.get('password2')
             email = register_form.cleaned_data.get('email')
             sex = register_form.cleaned_data.get('sex')
+            # head_img=register_form.cleaned_data.get('img_head')
 
             if password1 != password2:
                 message = '两次输入的密码不同！'
@@ -91,11 +95,43 @@ def logout(request):
     return redirect("/login/")
 
 def user(request):
-    id=request.session['user_id']
 
-    user_name=request.session['user_name']
+    if request.method == 'GET':
+        id = request.session['user_id']
+        user_name = request.session['user_name']
+
+
+        images = User.objects
+        images = images.filter(name=user_name)
+        return render(request, 'login/user.html', {'images': images,'id':id,'user_name':user_name,})
+    if request.method == 'POST':
+        icon = request.FILES.get('img')
+        email=request.POST.get('email')
+        sex=request.POST.get("ss")
+        nn=request.POST.get('nn')
+
+        user_name = request.session['user_name']
+        # User.objects.creat(head_img=icon)
+        models.User.objects.filter(name=user_name).update(head_img=icon)
+        models.User.objects.filter(name=user_name).update(email=email)
+        models.User.objects.filter(name=user_name).update(sex=sex)
+
+        # 将图片保存在media文件中，且存储的是相对路径
+        # obj=models.User.objects.get(name=user_name)
+        # obj.head_img=icon
+        # obj.save()
+
+        return HttpResponse('上传成功')
+        # return render(request, 'login/user.html')
+
+
+    # img = get_object_or_404(User,id);
+
+
 
     # login_form = forms.UserForm(request.POST)
     # username = login_form.cleaned_data.get('username')
     # user = models.User.objects.get(name=username);
-    return render(request, 'login/user.html', locals())
+    # return render(request, 'login/user.html',{'id':id,'user_name':user_name,'img':img})
+
+
