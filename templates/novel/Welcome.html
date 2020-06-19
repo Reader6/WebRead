@@ -28,6 +28,9 @@
 			#m-login form[name=frmLogin]{
 				display: none;
 			}
+			/*body{*/
+				/*background-color:#F0F0FC;*/
+			/*}*/
 		</style>
 				<link type="text/css" rel="stylesheet" href="//yuedust.yuedu.126.net/css/indexx.css?9d46c98e"/>
 		<link type="text/css" rel="stylesheet" href="//yuedust.yuedu.126.net/css/book.css?3cd685f6"/>
@@ -104,14 +107,14 @@
 			<div class="inner f-cb"></div>
 		</div>
 		<div class="m-headertop">
-			<div class="inner">
-				<!--<div class="m-sch">-->
-				</div>
+			<!--<div class="inner">-->
+				<!--&lt;!&ndash;<div class="m-sch">&ndash;&gt;-->
+				<!--</div>-->
 
-				<div class="m-clouds">
-					<a class="m-cloudsj" href="/shelf.do?operation=query_current" target="_blank">我的书架</a>
-				</div>
-			</div>
+				<!--<div class="m-clouds">-->
+					<!--<a class="m-cloudsj" href="/shelf.do?operation=query_current" target="_blank">我的书架</a>-->
+				<!--</div>-->
+			<!--</div>-->
 		</div>
 
 	</div>
@@ -134,8 +137,8 @@
         <ul class="nav navbar-nav">
           <li><a href="/login" class="active"> 首页</a></li>
           <li><a href="/novel">书城</a></li>
-          <li><a href=""> 我的</a></li>
-          <li><a href="#"> 书架</a></li>
+          <li><a href="/yonghu"> 我的</a></li>
+          <li><a href="/Bookrack"> 书架</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
               aria-expanded="false">更多<span class="caret"></span></a>
@@ -180,8 +183,8 @@
 	<div class="g-bdw g-bdw-1">
 		<div class="g-bd yd-grid2col-page">
 			<div class="m-breadcrumbs">当前位置：
-				<a href="/book">出版图书</a><span class="sep">&gt;</span>
-					计算机
+				<a href="/book">书城</a><span class="sep">&gt;</span>
+					经典名著
 			</div>
 
 
@@ -729,7 +732,7 @@
 	<nav aria-label="Page navigation">
 		<ur class="pagination">
 			<li>
-				#实现分页功能
+				<!--实现分页功能-->
 				{% if recommend_list.has_previous %}
 					<a href="{{recommend_list.previous_page_number}}" aria-label="Previous">
 						<span aria-hidden="true">&laquo;</span>
