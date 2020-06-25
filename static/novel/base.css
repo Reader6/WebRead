@@ -1,0 +1,356 @@
+section{
+    background-color: black;
+  }
+  .navbar {
+      background-color: white;
+      margin-bottom: 0px;
+    }
+    .nav > li > a {
+      padding: 25px 30px;
+      font-size: 20px;
+    }
+    .nav > li > a::before,
+    .nav > li > a::after{
+      position: absolute;
+      width: 45px;
+      height: 2px;
+      background-color: black;
+      content: '';
+      opacity: 0.2;
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+    .nav > li > a::before{
+      top: 5px !important;
+    }
+  
+    .nav > li >  a::before {
+      top: 10px;
+        left: 0;
+        transform: rotate(98deg);
+        transform-origin: 0 0;
+    }
+    
+    .nav > li > a::after {
+      right: 0;
+      bottom: 0;
+      transform: rotate(98deg);
+      transform-origin: 100% 0;
+    }
+    .nav > li > a:active{
+      color: orange;
+    }
+    .nav > li > a:hover::before,
+    .nav > li > a:hover::after,
+    .nav > li > a:focus::before,
+    .nav > li > a:focus::after,
+    .nav > li > a.active::before,
+    .nav > li > a.active::after {
+      opacity: 1;
+  }
+  
+  .nav > li > a:hover::before,
+  .nav > li > a:focus::before,
+  .nav > li > a:active::before {
+      left: 50%;
+      -webkit-transform: rotate(0deg) translateX(-50%);
+      -moz-transform: rotate(0deg) translateX(-50%);
+      transform: rotate(0deg) translateX(-50%);
+  }
+  
+  .nav > li > a:hover::after,
+  .nav > li > a:focus::after,
+  .nav > li > a:active::after{
+      right: 50%;
+      -webkit-transform: rotate(0deg) translateX(50%);
+      -moz-transform: rotate(0deg) translateX(50%);
+      transform: rotate(0deg) translateX(50%);
+  }
+    .navbar-brand {
+      padding: 25px 200px;
+      font-size: 30px;
+      font-style: italic;
+    }
+    .headerPage{
+        margin-top:70px;
+        height: 120px;
+        width: 100%;
+    }
+      .xuanhuan{
+        background-image: url("../../novel/images/xuanhuan.jpeg");
+        background-size: cover;
+        background-position: 50% -20px;
+        background-repeat:no-repeat;
+        
+      }
+      .header-search{
+        text-align: center;
+
+      }
+      .input-group{
+        align-content: center;
+        padding-top: 10%;
+      }
+      .btn-default{
+        background-color: red;
+        opacity: 0.7;
+        border-color: black;
+      }
+      .form-control{
+        background-color: transparent;
+        color: black;
+        border-color: black;
+        background-color:white;
+        opacity: 0.7;
+      }
+body{
+  background-color: ghostwhite;
+}
+.container{
+}
+.recomment .row{
+  border-top: solid 1px;
+  border-color: black;
+}
+.reconmentBox{
+  height: 330px;
+  position: relative;
+}
+.bookImg-Item{
+  text-align: center;
+  padding-top: 20%;
+  border-radius: 10%; 
+}
+
+.bookImg-Item img{
+  width: 100%;
+  height: 236px;
+  border-radius: 10%;
+  transform: 0.3s;
+}
+.bookImg-Item:hover{
+    background-color:gainsboro;
+    transform:scale(1.1);
+
+  }
+.bookImg-info h5:hover{
+  color: orange;
+  font-size: 20px;
+}
+.recomment-text{
+  padding: 2% 5% ;
+}
+.recomment-text p{
+  margin-top: 40px; 
+  font-size: 10px;
+  color:gray;
+}
+.newbook{
+  margin-top: 10%;
+}
+.newbook .row h3{
+  margin-left: 20px;
+}
+.box-left{
+  border-top: solid 1px black;
+  margin-bottom: 10px;
+}
+.box-left .col-lg-4{
+  padding-bottom: 20px;
+}
+.box-right{
+  border-top: solid 1px black;
+}
+
+.box-left li{
+  border-bottom: solid 1px gray;
+}
+.newBook-item {
+}
+.newBook-item .newBook-img{
+  float: left;
+  margin-right: 12px;
+}
+.newBook-item .item-info{ 
+}
+.newBook-item .item-info em{
+  float: right;
+}
+.num1{
+  background-color: red;
+  color: white;
+  font-size: 18px;
+}
+.num2{
+  background-color: orange;
+  color: white;
+  font-size: 15px;
+}
+.num3{
+  background-color: yellowgreen;
+  color: white;
+  font-size: 13px;
+}
+.box-right h4{
+  padding: 10px;
+}
+.box-right li {
+  padding: 10px;
+  border-top: solid 1px gainsboro;
+  border-bottom: solid 1px gainsboro;
+}
+.box-right li span{
+  margin-left: 10px;
+}
+.box-right li a{
+  color: black;
+}
+.box-right  .pv{
+  float: right;
+  padding-right: 10%;
+}
+
+.newChart-head {
+  margin-top: 10%;
+  border-bottom:solid 1px gray;
+
+}
+.newChartBox{
+  width: 100%;
+  display: block;
+}
+.newChartBox .tab-head{
+  border-bottom: 1px dotted #ccc;
+  letter-spacing: .86px;
+  line-height: 40px;
+}
+.newChartBox a{
+  background-color: transparent;
+  color: #337ab7;
+  text-decoration: none;
+}
+.newChartBox li{
+  font-size: 14px;
+  border-bottom: 1px dotted #ccc;
+  line-height: 40px;
+  height: 40px;
+  width: 100%;
+  letter-spacing: 1px;
+  padding-inline-start: 0px;
+}
+.newChartBox span{
+  float: left;
+  padding: 0px;
+}
+
+.bookname {
+  width: 250px;
+}
+ .chap {
+  width: 450px;
+}
+ .author {
+  font-size: 14px;
+ }
+.count {
+    width: 85px;
+}
+.time {
+  width: 105px;
+  padding-right: 0px;
+  text-align: right;
+}
+
+.bookInfoContaner .leftImage{
+  padding-left: 10%;
+}
+.bookInfoContaner h2{
+  margin-top: 0px;
+}
+.bookInfoContaner .rightInfo{
+
+    
+}
+.bookInfoContaner .rightInfo span{
+  border:solid 1px; 
+  border-color: orange;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-left: 10px;
+}
+.rightInfo .bookName {
+  font-size: 50px;
+}
+.rightInfo .book-desc{
+  height: 80px;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+}
+.bookInfoContaner .catalog li{
+   margin-top: 10px;
+
+}
+.innerBox .chartName{
+  font-size: 50px;
+}
+
+.float-set{
+  float:right;
+  top: 20%;
+  right: 2%;
+  width: 15%;
+  position:  fixed;
+  background-color: #ccc;
+  opacity: 0.5;
+}
+.color-select{
+  margin-left: 0px;
+  display: none;
+}
+.color-box{
+  background-color:gainsboro;
+  height: 20px;
+  border-radius:10px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.font-box{
+  background-color:gainsboro;
+  height: 20px;
+  border-radius:10px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.font-familySelect{
+  display: none;
+}
+.font-select {
+  display: none;
+}
+.font-familyBox{
+  background-color:gainsboro;
+  height: 20px;
+  border-radius:10px;
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 3px;
+}
+.bookInfoContaner{
+  margin-top: 70px;
+  padding:0px ;
+  background-color: #ccc;
+  padding-bottom: 10%;
+}
+
+.magazine-header h1{
+}
+.header_h1 {
+  text-align: center;
+}
+.boxs{font-family:”微软雅黑”}
+
+body{
+  background:#E5EAFF;
+}
