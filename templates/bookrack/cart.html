@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书架</title>
+    <style>
+       body {
+           height: 100%;
+           width: 100%;
+           background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588774948942&di=2dbaed1a8b2276fa200cee1783700439&imgtype=0&src=http%3A%2F%2Fpic2.cxtuku.com%2F00%2F09%2F92%2Fb47951ea82e0.jpg') no-repeat;
+           background-size: cover;
+           position: absolute;
+           overflow: hidden;
+
+       }
+       /*table {*/
+           /*position: absolute;*/
+           /*left: 300px;*/
+           /*top: 250px;*/
+       /*}*/
+    </style>
+    <!--<style>body {background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588774275600&di=d6b00de90dc081c8b24e89d9812be4ca&imgtype=0&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D1832646016%2C2339851848%26fm%3D214%26gp%3D0.jpg"); } </style>-->
+</head>
+<body>
+<center>
+<h1>书架</h1>
+
+<table  align="center">
+    <!--<tr>-->
+        <!--<th>小说图片</th>-->
+        <!--<th>小说名</th>-->
+        <!--<th>删除</th>-->
+    <!--</tr>-->
+    {% for key,book in shoplist.items%}
+        <td>
+        <tr>
+             <a href="{% url 'bookinfo:book' book.novel_Id %}" >
+                 <img style="width: 150px; height:150px; "src="{{book.novel_img}}"></a></tr>
+
+        <!--<td>-->
+             <!--<a href="{% url 'bookinfo:book' book.novel_Id %}" >-->
+                 <!--{{book.novel_name}}</a></td>-->
+        <tr><a href="del/{{book.novel_Id}}" role="button">删除</a></tr>
+        </td>
+        {%empty%}
+        <h3>暂时没有添加书籍</h3>
+
+    {%endfor%}
+
+</table>
+</center>
+</body>
+</html>
+

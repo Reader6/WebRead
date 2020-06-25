@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>{{chart.novel.novel_name}}</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="styleSheet" href="../../../../static/novel/base.css" <!-- HTML5 shim 和 Respond.js 是为了让
+        IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        #magazine {
+            height: 800px;
+            background-color: #ccc;
+        }
+
+        #magazine .turn-page {
+            background-color: #ccc;
+            color: black;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#mainPage" class="active"> 首页</a></li>
+                    <li><a href="#featuresPage">我的</a></li>
+                    <li><a href="#"> 菜单</a></li>
+                    <li><a href="#"> 书架</a></li>
+                    <!--<li><a href="#"> 游戏</a></li>-->
+                    <!--<li><a href="#"> 历史</a></li>-->
+                    <!--<li><a href="#"> 言情</a></li>-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">更多<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container bookInfoContaner">
+        <div id="magazine">
+            <div class="magazine-header" style="background-color: wheat;">
+                <h1 class="header_h1" style="text-align: center; margin-top:30%;">{{chart.novel.novel_name}}</h1>
+                <h3 style="text-align: center;margin-top:20px;">{{chart.novel_title}} <em
+                        style="font-size: 5px;">-{{chart.novel.novel_author}}</em></h5>
+                    <h5 style="text-align: center;margin-top:20px;">{{novel_time}}</h5>
+            </div>
+        </div>
+        <!-- <div class="bookInfo" style="border-bottom: solid 1px;">
+            <div class="innerBox">
+                <p>< <em class="chartName">{{chart.title}}</em></p>
+                <p>
+                    <em class="bookName">小说: <<{{chart.novel.novel_name}} >></em>
+                    <em>作者: {{chart.novel.novel_name}}</em>
+                    <em>字数: 3303</em>
+                    <em>更新时间:2019年11.1 20:8</em>
+                </p>
+            </div>
+        </div>
+        <div class="content">
+            <div id="chapter_content">
+                <div style="width:100%;margin:10px auto;overflow:hidden" id="LayoutAD">
+                </div>
+                {{chart.novel_cont}}
+            </div>
+        </div> -->
+    </div>
+        
+
+    <div class="float-set">
+        <ul>
+            <div class="color">
+                <h4 class="colorButton">背景 颜色</h4>
+                <div class="color-select row">
+                    <div class="color-box col-lg-3"></div>
+                    <div class="color-box col-lg-3" style="background-color: #ffcc99"></div>
+                    <div class="color-box col-lg-3" style="background-color:#99ffff"></div>
+                    <div class="color-box col-lg-3" style="background-color: #9999cc"></div>
+                    <div class="color-box col-lg-3" style="background-color: #FFEBCD"></div>
+                    <div class="color-box col-lg-3" style="background-color:	#8B8989"></div>
+                    <div class="color-box col-lg-3" style="background-color:#63B8FF"></div>
+                    <div class="color-box col-lg-3" style="background-color: #8B8970"></div>
+                    <div class="color-box col-lg-3" style="background-color: black"></div>
+                </div>
+            </div>
+            <div class="font">
+                <h4 class="fontButton">字体大小</h4>
+                <div class="font-select row">
+                    <div class="font-box col-lg-3">增大</div>
+                    <div class="font-box col-lg-3">17</div>
+                    <div class="font-box col-lg-3">减小</div>
+                </div>
+            </div>
+            <div class="font-family">
+                <h4 class="fontfamilyButton">字体类型</h4>
+                <div class="font-familySelect row">
+                    <div class="font-familyBox col-lg-2">宋体</div>
+                    <div class="font-familyBox col-lg-2">黑体</div>
+                    <div class="font-familyBox col-lg-2">微软雅黑</div>
+                    <div class="font-familyBox col-lg-2">楷体</div>
+                </div>
+            </div>
+            <div class="catalog">
+                <h4 class="fontfamilyButton">返回目录</h4>
+            </div>
+        </ul>
+    </div>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../../static/novel/turn.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.colorButton').mouseover(function () {
+                $(".color-select").fadeIn(100);
+            });
+            $('.color').mouseleave(function () {
+                $(".color-select").fadeOut(500);
+            });
+
+            $('.fontButton').mouseover(function () {
+                $(".font-select").fadeIn(100);
+            });
+            $('.font').mouseleave(function () {
+                $(".font-select").fadeOut(500);
+            });
+            $('.fontfamilyButton').mouseover(function () {
+                $(".font-familySelect").fadeIn(100);
+            });
+            $('.font-family').mouseleave(function () {
+                $(".font-familySelect").fadeOut(500);
+            });
+            var stroycontent ="{{chart.novel_cont|safe}}";
+            var $textsize=600;
+            stroycontent=stroycontent.replace(/\r/g,"<br>");
+            stroycontent=stroycontent.replace(/&#39/g,"");
+            stroycontent=stroycontent.replace(/', '/g,"");
+            // $stroycontent   =  $stroycontent.replaceAll('&nbsp;&nbsp;&nbsp;&nbsp;','<br>');  
+            for(var i=0;stroycontent.length>i;){
+                $('#magazine').append('<div style="background-color: wheat;"><p >'+stroycontent.substr(i,$textsize)+"</p></div>");
+                i+=$textsize;
+            }
+
+        })
+
+    </script>
+    <script type="text/javascript">
+
+        $(window).ready(function () {
+            $('#magazine').turn({
+                display: 'single',
+                acceleration: true,
+                gradients: true,
+                elevation: 1000,
+                duration: 3000,
+                display: 'double',
+                pages: 7,
+                when: {
+                    turned: function (e, page) {
+                        /*console.log('Current view: ', $(this).turn('view'));*/
+                    }
+                }
+            });
+        });
+        $(window).bind('keydown', function (e) {
+
+            if (e.keyCode == 37)
+                $('#magazine').turn('previous');
+            else if (e.keyCode == 39)
+                $('#magazine').turn('next');
+
+        });
+
+    </script>
+</body>
+
+</html>
